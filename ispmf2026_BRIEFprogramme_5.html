@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISPMF 2026 – Programme</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green: #1B6B3A;
+    --green-light: #e8f4ed;
+    --green-mid: #2d8a50;
+    --gold: #c8972a;
+    --gold-light: #fdf3dc;
+    --text: #1a1a1a;
+    --text-muted: #5a5a5a;
+    --text-light: #888;
+    --border: #e0e0d8;
+    --bg: #fafaf8;
+    --bg-card: #ffffff;
+    --flash-bg: #f5f3ef;
+    --radius: 6px;
+    --font: 'DM Sans', sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    font-size: 15px;
+    padding: 0 0 4rem;
+  }
+
+  /* ─── Header ─── */
+  .prog-header {
+    background: var(--green);
+    color: #fff;
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+  }
+  .prog-header .conference {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+  }
+  .prog-header h1 {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+  }
+  .prog-header h1 strong { font-weight: 500; }
+  .prog-header .dates {
+    font-size: 14px;
+    opacity: 0.75;
+    font-weight: 300;
+  }
+  .prog-header .venue {
+    margin-top: 0.9rem;
+    font-size: 13px;
+    opacity: 0.65;
+    font-weight: 300;
+  }
+  .prog-header .venue a {
+    color: #a8dbb8;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(168,219,184,0.4);
+  }
+  .prog-header .venue a:hover { opacity: 0.85; }
+
+  /* ─── Day navigation ─── */
+  .day-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+  .day-nav a {
+    display: block;
+    padding: 0.85rem 1.5rem;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-muted);
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+    letter-spacing: 0.02em;
+  }
+  .day-nav a:hover { color: var(--green); border-bottom-color: var(--green-light); }
+  .day-nav a.active { color: var(--green); font-weight: 500; border-bottom-color: var(--green); }
+
+  /* ─── Legend ─── */
+  .legend {
+    max-width: 900px;
+    margin: 2rem auto 0;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.4rem;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-dot {
+    width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
+  }
+  .dot-keynote { background: var(--gold); }
+  .dot-oral { background: var(--green); }
+  .dot-flash { background: #7a8fa6; }
+  .dot-break { background: #d5d0c8; }
+  .dot-prize { background: #9b6fba; }
+
+  /* ─── Day block ─── */
+  .day-block {
+    max-width: 900px;
+    margin: 3rem auto 0;
+    padding: 0 1.5rem;
+  }
+  .day-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .day-label h2 {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--green);
+    white-space: nowrap;
+  }
+  .day-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ─── Session block ─── */
+  .session-block {
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-card);
+    overflow: hidden;
+  }
+  .session-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.1rem;
+    background: var(--green-light);
+    border-bottom: 1px solid #d0e8d8;
+    gap: 1rem;
+  }
+  .session-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--green);
+  }
+  .session-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+  .session-time {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--green-mid);
+  }
+  .session-chair {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .session-chair span { color: var(--text); font-weight: 500; }
+  .session-topic {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    padding: 0.35rem 1.1rem;
+    border-bottom: 1px solid var(--border);
+    background: #fafaf6;
+    font-style: italic;
+  }
+
+  /* ─── Row ─── */
+  .row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .row:first-child { border-top: none; }
+  .row-time {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-light);
+    padding: 0.7rem 0.75rem;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0.85rem;
+    line-height: 1.3;
+    border-right: 1px solid var(--border);
+  }
+  .row-content {
+    padding: 0.7rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  /* ─── Keynote ─── */
+  .row.keynote { background: var(--gold-light); }
+  .row.keynote .row-time { color: #a07010; border-right-color: #ecd89a; }
+  .row-type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    width: fit-content;
+    margin-bottom: 3px;
+  }
+  .badge-keynote { background: #f7e6b8; color: #7a5800; }
+  .badge-prize { background: #ede0f5; color: #5c2e80; }
+  .badge-flash { background: #e8eef4; color: #3a5068; }
+  .badge-oral { background: #e3f0e8; color: #1a5c33; }
+
+  .row-speaker { font-weight: 500; font-size: 14px; color: var(--text); }
+  .row-title { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+  .row-affil { font-size: 12px; color: var(--text-light); margin-top: 1px; }
+  .row-track {
+    font-size: 11px;
+    color: #888;
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  /* ─── Prize ─── */
+  .row.prize { background: #f9f3fc; }
+  .row.prize .row-time { color: #7a4a9a; border-right-color: #dbc8ea; }
+
+  /* ─── Flash talks ─── */
+  .flash-block {
+    margin-bottom: 1.5rem;
+    border: 1px solid #d0d8e0;
+    border-radius: 10px;
+    background: var(--flash-bg);
+    overflow: hidden;
+  }
+  .flash-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.1rem;
+    background: #e8eef4;
+    border-bottom: 1px solid #d0d8e0;
+    gap: 1rem;
+  }
+  .flash-title { font-size: 13px; font-weight: 500; color: #3a5068; }
+  .flash-header .session-time { color: #4a6a84; }
+  .flash-header .session-chair { color: var(--text-muted); }
+  .flash-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    border-top: 1px solid #dce3e9;
+    font-size: 13px;
+  }
+  .flash-row:first-child { border-top: none; }
+  .flash-time {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: #7a8fa6;
+    padding: 0.6rem 0.75rem;
+    padding-top: 0.75rem;
+    border-right: 1px solid #dce3e9;
+  }
+  .flash-content { padding: 0.6rem 1rem; display: flex; flex-direction: column; gap: 1px; }
+  .flash-speaker { font-weight: 500; font-size: 13px; color: var(--text); }
+  .flash-title-talk { font-size: 12px; color: var(--text-muted); }
+
+  /* ─── Break rows ─── */
+  .break-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.55rem 1.1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    background: transparent;
+    font-size: 13px;
+    color: var(--text-light);
+  }
+  .break-row .break-time { font-family: var(--mono); font-size: 11px; flex-shrink: 0; }
+  .break-row .break-label { font-style: italic; }
+  .break-row::before {
+    content: '';
+    display: block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+
+  /* ─── Special rows (poster, dinner, etc.) ─── */
+  .special-block {
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-card);
+    overflow: hidden;
+  }
+  .special-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1.1rem;
+    font-size: 13.5px;
+    border-top: 1px solid var(--border);
+  }
+  .special-row:first-child { border-top: none; }
+  .special-row .sp-time { font-family: var(--mono); font-size: 11px; color: var(--text-light); min-width: 85px; }
+  .special-row .sp-label { font-weight: 400; color: var(--text-muted); }
+
+  /* ─── TBA badge ─── */
+  .tba { font-size: 11px; background: #f0ece6; color: #9a8878; padding: 2px 8px; border-radius: 3px; display: inline-block; }
+
+  .abstracts-banner {
+    max-width: 900px;
+    margin: 1rem auto 0;
+    padding: 0 1.5rem;
+  }
+  .abstracts-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: var(--green-light);
+    border: 1px solid #c0deca;
+    border-radius: var(--radius);
+    padding: 0.65rem 1rem;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .abstracts-icon { color: var(--green); flex-shrink: 0; display: flex; align-items: center; }
+  .abstracts-inner a {
+    color: var(--green);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid #a0ccb0;
+  }
+  .abstracts-inner a:hover { border-bottom-color: var(--green); }
+    .day-nav a { padding: 0.7rem 0.9rem; font-size: 12px; }
+    .session-header { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+    .row, .flash-row { grid-template-columns: 78px 1fr; }
+    .prog-header { padding: 2rem 1.2rem 1.8rem; }
+    .day-block { padding: 0 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="prog-header">
+  <p class="conference">7th International Conference on Plant Molecular Farming</p>
+  <h1>ISPMF 2026 <strong>Programme</strong></h1>
+  <p class="dates">13–15 May 2026 &nbsp;·&nbsp; UPV, Valencia</p>
+  <p class="venue">📍 <a href="https://maps.app.goo.gl/69R5RMYiiqT2Acb88" target="_blank">Cubo Azul, CPI – Universitat Politècnica de València (rooftop terrace)</a></p>
+</div>
+
+<nav class="day-nav">
+  <a href="#day0" class="active">Tue 12</a>
+  <a href="#day1">Wed 13</a>
+  <a href="#day2">Thu 14</a>
+  <a href="#day3">Fri 15</a>
+</nav>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot dot-keynote"></div> Keynote</div>
+  <div class="legend-item"><div class="legend-dot dot-prize"></div> President's Prize</div>
+  <div class="legend-item"><div class="legend-dot dot-oral"></div> Oral presentation</div>
+  <div class="legend-item"><div class="legend-dot dot-flash"></div> Flash talk</div>
+</div>
+
+<div class="abstracts-banner">
+  <div class="abstracts-inner">
+    <div class="abstracts-icon">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="1" width="11" height="15" rx="1.5" stroke="currentColor" stroke-width="1.3" fill="none"/>
+        <line x1="5" y1="5.5" x2="10" y2="5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="5" y1="8" x2="10" y2="8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="5" y1="10.5" x2="8" y2="10.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <circle cx="14" cy="14" r="3.2" fill="var(--green)" stroke="none"/>
+        <line x1="13" y1="14" x2="15" y2="14" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="14" y1="13" x2="14" y2="15" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p>Full abstracts for all presentations are available in the <a href="https://www.ispmf2026valencia.org/book-of-abstracts" target="_blank">Book of Abstracts</a>.</p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     TUESDAY 12 MAY
+════════════════════════════════════════════ -->
+<div class="day-block" id="day0">
+  <div class="day-label"><h2>Tuesday, 12 May 2026</h2></div>
+
+  <div class="special-block">
+    <div class="special-row">
+      <span class="sp-time">18:00–20:00</span>
+      <span class="sp-label">Registration &nbsp;·&nbsp; <a href="https://maps.app.goo.gl/69R5RMYiiqT2Acb88" target="_blank" style="color: var(--green); text-decoration: none; border-bottom: 1px solid var(--green-light);">Cubo Azul, CPI – UPV (rooftop terrace)</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     WEDNESDAY 13 MAY
+════════════════════════════════════════════ -->
+<div class="day-block" id="day1">
+  <div class="day-label"><h2>Wednesday, 13 May 2026</h2></div>
+
+  <div class="break-row"><span class="break-time">08:30–09:30</span><span class="break-label">Registration</span></div>
+  <div class="break-row"><span class="break-time">09:30–10:00</span><span class="break-label">Opening ceremony</span></div>
+
+  <!-- SESSION 1 -->
+  <div class="session-block">
+    <div class="session-header">
+      <div class="session-title">Session 1 &nbsp;·&nbsp; 10:00–11:15</div>
+      <div class="session-meta">
+        <div class="session-chair">Chair: <span>R. Menassa</span></div>
+      </div>
+    </div>
+    <div class="session-topic">Keynote · President's Prize</div>
+
+    <div class="row keynote">
+      <div class="row-time">10:00–10:45</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-keynote">Keynote</div>
+        <div class="row-speaker">Julian Ma</div>
+        <div class="row-title">Plant Molecular Farming — a 360° review</div>
+        <div class="row-affil">SGUL, UK</div>
+      </div>
+    </div>
+
+    <div class="row prize">
+      <div class="row-time">10:45–11:15</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-prize">President's Prize</div>
+        <div class="row-speaker">Nora Liu</div>
+        <div class="row-title">Context-dependent Pattern-triggered Immunity Control of Agrobacterium-mediated Transient Expression Efficiency</div>
+        <div class="row-affil">University of Oxford, UK</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="break-row"><span class="break-time">11:15–11:45</span><span class="break-label">Coffee break</span></div>
+
+  <!-- SESSION 2 -->
+  <div class="session-block">
+    <div class="session-header">
+      <div class="session-title">Session 2 &nbsp;·&nbsp; 11:45–13:25</div>
+      <div class="session-meta">
+        <div class="session-chair">Chair: <span>E. Stöger</span></div>
+      </div>
+    </div>
+    <div class="session-topic">Plant-Made Biologics – From Antibodies to Advanced Therapeutics</div>
+
+    <div class="row">
+      <div class="row-time">11:45–12:05</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Pasquale Creanza</div>
+        <div class="row-title">A Novel Eco-Friendly Biopolymer from Phaseolin</div>
+        <div class="row-affil">University of Urbino Carlo Bo</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">12:05–12:25</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Yvonne Rosenberg</div>
+        <div class="row-title">The use of plant-derived cancer immunotherapics to provide treatments for pregnant women, while avoiding fetal and neonatal harm</div>
+        <div class="row-affil">PlantVax Inc., USA</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">12:25–12:45</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Geartsje Bakker</div>
+        <div class="row-title">From Leaf to Lifesaver: <em>Nicotiana benthamiana</em> as highly versatile platform for the production of glycoprotein-based vaccines against parasitic worms</div>
+        <div class="row-affil">Wageningen University &amp; Research</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">12:45–13:05</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Andreas Fradinger</div>
+        <div class="row-title">Plants-on-a-chip: microfluidics-based real-time tracking of protein body formation in plant cells</div>
+        <div class="row-affil">BOKU University</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">13:05–13:25</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Nobuyuki Matoba</div>
+        <div class="row-title">A plant-produced FcR-agonistic lectibody targeting high-mannose glycans for cancer immunotherapy</div>
+        <div class="row-affil">University of Louisville</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="break-row"><span class="break-time">13:25–14:40</span><span class="break-label">Lunch</span></div>
+
+  <!-- SESSION 3 -->
+  <div class="session-block">
+    <div class="session-header">
+      <div class="session-title">Session 3 &nbsp;·&nbsp; 14:40–16:05</div>
+      <div class="session-meta">
+        <div class="session-chair">Chair: <span class="tba">TBA</span></div>
+      </div>
+    </div>
+    <div class="session-topic">Plant-Made Biologics (cont.) · Keynote: Alfredo Quijano</div>
+
+    <div class="row">
+      <div class="row-time">14:40–15:00</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Kathrin Göritzer</div>
+        <div class="row-title">Using in planta glycoengineering to decode mucosal structure-function relationships of human secretory IgA</div>
+        <div class="row-affil">BOKU University</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">15:00–15:20</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Doga Selin Kayihan</div>
+        <div class="row-title">Development of a transgene-free edible vaccine model via mobile mRNA fusion</div>
+        <div class="row-affil">John Innes Centre</div>
+      </div>
+    </div>
+    <div class="row keynote">
+      <div class="row-time">15:20–16:05</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-keynote">Keynote</div>
+        <div class="row-speaker">Alfredo Quijano</div>
+        <div class="row-title">NovoBodies: Next-generation AI-Designed Antibody Mimetics</div>
+        <div class="row-affil">Monod Bio, USA</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="break-row"><span class="break-time">16:05–16:30</span><span class="break-label">Coffee break</span></div>
+  <div class="break-row"><span class="break-time">16:30–17:30</span><span class="break-label">AGM (Annual General Meeting)</span></div>
+
+  <!-- SESSION 4 -->
+  <div class="flash-block">
+    <div class="flash-header">
+      <div class="flash-title">Session 4 &nbsp;·&nbsp; Flash Talks I &nbsp;·&nbsp; 17:30–18:00</div>
+      <div class="session-meta">
+        <div class="session-chair">Chair: <span>Julian Ma</span></div>
+      </div>
+    </div>
+
+    <div class="flash-row">
+      <div class="flash-time">17:30–17:35</div>
+      <div class="flash-content">
+        <div class="flash-speaker">Janejira Jaratsittisin</div>
+        <div class="flash-title-talk">Rapid Production of Broadly Neutralizing Antibody CR9114 in <em>Nicotiana benthamiana</em> for Potent Neutralization of H5N1 and H7N9 Influenza Strains</div>
+      </div>
+    </div>
+    <div class="flash-row">
+      <div class="flash-time">17:35–17:40</div>
+      <div class="flash-content">
+        <div class="flash-speaker">Marta Rodríguez-Rodríguez</div>
+        <div class="flash-title-talk">A multilayer strategy for the stable integration and inducible control of TMV-based biofactories</div>
+      </div>
+    </div>
+    <div class="flash-row">
+      <div class="flash-time">17:40–17:45</div>
+      <div class="flash-content">
+        <div class="flash-speaker">Marco Costantini</div>
+        <div class="flash-title-talk">Safety and pharmacokinetic study of a plant-produced Nipah virus neutralising porcine monoclonal antibody</div>
+      </div>
+    </div>
+    <div class="flash-row">
+      <div class="flash-time">17:45–17:50</div>
+      <div class="flash-content">
+        <div class="flash-speaker">Anya Choudhury</div>
+        <div class="flash-title-talk">Plant-based expression and engineering of Fc-silent bispecific immune checkpoint inhibitors for affordable cancer immunotherapy</div>
+      </div>
+    </div>
+    <div class="flash-row">
+      <div class="flash-time">17:50–17:55</div>
+      <div class="flash-content">
+        <div class="flash-speaker">Réka Kereszty</div>
+        <div class="flash-title-talk">Optimizing the assembly and accumulation of SIgA in the endomembrane system of plants</div>
+      </div>
+    </div>
+    <div class="flash-row">
+      <div class="flash-time">17:55–18:00</div>
+      <div class="flash-content">
+        <div class="flash-speaker">Shanice Taylor</div>
+        <div class="flash-title-talk">Multigenerational Expression and Purification of a Parathyroid Hormone-Fc Biologic in Transgenic Lettuce for Osteopenia Treatment</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="special-block">
+    <div class="special-row">
+      <span class="sp-time">18:00–20:00</span>
+      <span class="sp-label">Poster Session I</span>
+    </div>
+    <div class="special-row">
+      <span class="sp-time">18:30–20:00</span>
+      <span class="sp-label">Welcome Reception &nbsp;·&nbsp; <a href="https://maps.app.goo.gl/69R5RMYiiqT2Acb88" target="_blank" style="color: var(--green); text-decoration: none; border-bottom: 1px solid var(--green-light);">Cubo Azul, CPI – UPV (rooftop terrace)</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     THURSDAY 14 MAY
+════════════════════════════════════════════ -->
+<div class="day-block" id="day2">
+  <div class="day-label"><h2>Thursday, 14 May 2026</h2></div>
+
+  <!-- SESSION 5 -->
+  <div class="session-block">
+    <div class="session-header">
+      <div class="session-title">Session 5 &nbsp;·&nbsp; 09:00–11:25</div>
+      <div class="session-meta">
+        <div class="session-chair">Chair: <span>L. Avesani</span></div>
+      </div>
+    </div>
+    <div class="session-topic">Viral Vectors &amp; Nanoparticles · Keynote: Nicole Steinmetz</div>
+
+    <div class="row keynote">
+      <div class="row-time">09:00–09:45</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-keynote">Keynote</div>
+        <div class="row-speaker">Nicole Steinmetz</div>
+        <div class="row-title">From Plants to Planets: Plant Virus Therapeutics for One Health</div>
+        <div class="row-affil">UCSD, USA</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">09:45–10:05</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">George Lomonossoff</div>
+        <div class="row-title">Delivering RNA to mammalian cells using a plant virus capsid</div>
+        <div class="row-affil">John Innes Centre</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">10:05–10:25</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Jordan VanderBurgt</div>
+        <div class="row-title">Effective production of protein nanoparticles in two plant-based systems</div>
+        <div class="row-affil">Western University</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">10:25–10:45</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Patrick Opdensteinen</div>
+        <div class="row-title">Immunoengineering in space: pioneering VLP-based immunotherapies produced through plant molecular farming in low resource environments</div>
+        <div class="row-affil">UC San Diego</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">10:45–11:05</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">E. Lozano-Sanchez</div>
+        <div class="row-title">Nanobody-functionalized potato virus X nanoparticles for targeted cancer therapy and protein delivery</div>
+        <div class="row-affil">Universitat Politècnica de València</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">11:05–11:25</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Vianney Poignavent</div>
+        <div class="row-title">Plant-Derived VLPs for Cancer Immunotherapy: Coupling Neoantigen Packaging with APC-Targeted Display</div>
+        <div class="row-affil">Serendip Innovations</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="break-row"><span class="break-time">11:25–11:55</span><span class="break-label">Coffee break</span></div>
+
+  <!-- SESSION 6 -->
+  <div class="session-block">
+    <div class="session-header">
+      <div class="session-title">Session 6 &nbsp;·&nbsp; 11:55–13:20</div>
+      <div class="session-meta">
+        <div class="session-chair">Chair: <span>JA. Darós</span></div>
+      </div>
+    </div>
+    <div class="session-topic">Scaling Up Plant-Based Production · Keynote: Björn Örvar</div>
+
+    <div class="row keynote">
+      <div class="row-time">11:55–12:40</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-keynote">Keynote</div>
+        <div class="row-speaker">Björn Örvar</div>
+        <div class="row-title">Molecular farming for 25 years – aligning our barley bioreactor to business opportunities</div>
+        <div class="row-affil">ORF Genetics</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">12:40–13:00</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Anthony Rosa</div>
+        <div class="row-title">Pilot-scale production facility of clinical-grade therapeutic nanoparticles</div>
+        <div class="row-affil">Diamante</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">13:00–13:20</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Cliff Yang</div>
+        <div class="row-title">Recombinant Protein Expression Reached 30 g/kg in <em>Oryza Sativa</em> endosperm</div>
+        <div class="row-affil">Oryzogen</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="break-row"><span class="break-time">13:20–14:30</span><span class="break-label">Lunch</span></div>
+
+  <!-- SESSION 7 -->
+  <div class="session-block">
+    <div class="session-header">
+      <div class="session-title">Session 7 &nbsp;·&nbsp; 14:30–16:35</div>
+      <div class="session-meta">
+        <div class="session-chair">Chair: <span>M. Díez-Cocero</span></div>
+      </div>
+    </div>
+    <div class="session-topic">Scaling Up Plant-Based Production (cont.) · Keynote: Kirsi-Marja Oksman</div>
+
+    <div class="row">
+      <div class="row-time">14:30–14:50</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Andreas Schaaf</div>
+        <div class="row-title">Unlocking unique products whilst maintaining industry standards</div>
+        <div class="row-affil">Eleva Biologics</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">14:50–15:10</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Yuri Gleba</div>
+        <div class="row-title">Reinventing Sweetness: How Plant Molecular Farming Unlocked the Industrial Production of Protein Sweetener Thaumatin</div>
+        <div class="row-affil">Nomad Bioscience</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">15:10–15:30</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Jannik Lutz</div>
+        <div class="row-title">Scale-up and DoE-based optimization of plant cell packs enables transformation of 600 g BY-2 cells with target yields of more than 1 g/kg biomass</div>
+        <div class="row-affil">Fraunhofer IME</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">15:30–15:50</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Hugh Haydon</div>
+        <div class="row-title">Scale-up and cGMP Manufacturing of Plant Made Pharmaceuticals</div>
+        <div class="row-affil">Kentucky BioProcessing</div>
+      </div>
+    </div>
+    <div class="row keynote">
+      <div class="row-time">15:50–16:35</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-keynote">Keynote</div>
+        <div class="row-speaker">Kirsi-Marja Oksman</div>
+        <div class="row-title">Scientifically validated new cosmetic ingredients from plants and plant cells</div>
+        <div class="row-affil">VTT, Finland</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="break-row"><span class="break-time">16:35–17:00</span><span class="break-label">Coffee break</span></div>
+
+  <!-- SESSION 8 -->
+  <div class="session-block">
+    <div class="session-header">
+      <div class="session-title">Session 8 &nbsp;·&nbsp; 17:00–18:20</div>
+      <div class="session-meta">
+        <div class="session-chair">Chair: <span>E. González-Grandío</span></div>
+      </div>
+    </div>
+    <div class="session-topic">Smart Chassis – Engineering the Plant Factory</div>
+
+    <div class="row">
+      <div class="row-time">17:00–17:20</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Dominique Michaud</div>
+        <div class="row-title">A gene-edited, space-efficient <em>Nicotiana benthamiana</em> platform for heterologous protein production in closed environments</div>
+        <div class="row-affil">Université Laval</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">17:20–17:40</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Marta Vazquez-Vilar</div>
+        <div class="row-title">Bioluminescent sentinel plants enable autonomous diagnostics of viral infections</div>
+        <div class="row-affil">IBMCP-CSIC-UPV</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">17:40–18:00</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Radek Vítek</div>
+        <div class="row-title">From Leaves to Seeds: Transcriptional Rewiring and Time-Resolved Monitoring of Recombinant Antibody Accumulation</div>
+        <div class="row-affil">Institute of Experimental Botany, Czech Academy of Sciences</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">18:00–18:20</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Emma Watts</div>
+        <div class="row-title">Immune Attenuation of <em>Nicotiana benthamiana</em> against <em>Agrobacterium tumefaciens</em> for Molecular Farming</div>
+        <div class="row-affil">University of Oxford</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SESSION 9 -->
+  <div class="flash-block">
+    <div class="flash-header">
+      <div class="flash-title">Session 9 &nbsp;·&nbsp; Flash Talks II &nbsp;·&nbsp; 18:20–18:35</div>
+      <div class="session-meta">
+        <div class="session-chair">Chair: <span>KM. Oksman</span></div>
+      </div>
+    </div>
+
+    <div class="flash-row">
+      <div class="flash-time">18:20–18:25</div>
+      <div class="flash-content">
+        <div class="flash-speaker">Juliane Schuphan</div>
+        <div class="flash-title-talk">More Than Carriers: Plant Viral Nanoparticles promote neuronal differentiation and growth guidance</div>
+      </div>
+    </div>
+    <div class="flash-row">
+      <div class="flash-time">18:25–18:30</div>
+      <div class="flash-content">
+        <div class="flash-speaker">Carly Charron</div>
+        <div class="flash-title-talk">Plant production of multivalent protein nanoparticle vaccines to prevent non-typhoidal <em>Salmonella enterica</em> colonization in poultry</div>
+      </div>
+    </div>
+    <div class="flash-row">
+      <div class="flash-time">18:30–18:35</div>
+      <div class="flash-content">
+        <div class="flash-speaker">Sandra Correia</div>
+        <div class="flash-title-talk">Scaled-Up Woody Plant Cell Suspension Cultures as Versatile Platforms for Extracellular Vesicles and Enzyme Production</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="special-block">
+    <div class="special-row">
+      <span class="sp-time">18:00–19:30</span>
+      <span class="sp-label">Parallel Outreach Experience &nbsp;·&nbsp; <a href="https://www.ispmf2026valencia.org/outreach-experience" target="_blank" style="color: var(--green); text-decoration: none; border-bottom: 1px solid var(--green-light);">More info</a></span>
+    </div>
+    <div class="special-row">
+      <span class="sp-time">18:40–19:30</span>
+      <span class="sp-label">Poster Session II</span>
+    </div>
+    <div class="special-row">
+      <span class="sp-time">20:30</span>
+      <span class="sp-label">Conference Dinner &nbsp;·&nbsp; Rooftop cocktail and tapas evening at <a href="https://maps.app.goo.gl/3ZEEQzguav1T6vqm9" target="_blank" style="color: var(--green); text-decoration: none; border-bottom: 1px solid var(--green-light);">Nuvó Restaurant, Hotel One Shot Puerta Ruzafa</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     FRIDAY 15 MAY
+════════════════════════════════════════════ -->
+<div class="day-block" id="day3">
+  <div class="day-label"><h2>Friday, 15 May 2026</h2></div>
+
+  <!-- SESSION 10 -->
+  <div class="session-block">
+    <div class="session-header">
+      <div class="session-title">Session 10 &nbsp;·&nbsp; 09:00–11:05</div>
+      <div class="session-meta">
+        <div class="session-chair">Chair: <span>H. Warzecha</span></div>
+      </div>
+    </div>
+    <div class="session-topic">Metabolic Pathway Engineering for High-Value Compounds · Keynote: Toni Granell</div>
+
+    <div class="row keynote">
+      <div class="row-time">09:00–09:45</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-keynote">Keynote</div>
+        <div class="row-speaker">Toni Granell</div>
+        <div class="row-title">Plants as Biofactories of Metabolites: Breeding and Engineering for High-Level Production in Tomato</div>
+        <div class="row-affil">IBMCP-CSIC, Spain</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">09:45–10:05</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">José Tomás Matus Picero</div>
+        <div class="row-title">Integrating elicitation of cell cultures with genome assembly, full-length transcript sequencing and epigenetic modulation to dissect boldine biosynthesis in <em>Peumus boldus</em></div>
+        <div class="row-affil">I2SysBio, CSIC – Universitat de València</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">10:05–10:25</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Silvia Gianoglio</div>
+        <div class="row-title">Recombinant plant-based production of cyclic irregular monoterpene pheromones via a newly identified trans-α-necrodyl diphosphate synthase</div>
+        <div class="row-affil">University of Turin</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">10:25–10:45</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Amir Akhgari</div>
+        <div class="row-title">Ortholog Driven CRISPRa Modules Enable Enhanced and Flexible Plant Gene Activation</div>
+        <div class="row-affil">VTT Technical Research Centre of Finland</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">10:45–11:05</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Luca Morelli</div>
+        <div class="row-title">Compartmentalized metabolic engineering for carotenoid production across biological scales</div>
+        <div class="row-affil">University of Southern Denmark</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="break-row"><span class="break-time">11:05–11:35</span><span class="break-label">Coffee break</span></div>
+
+  <!-- SESSION 11 -->
+  <div class="session-block">
+    <div class="session-header">
+      <div class="session-title">Session 11 &nbsp;·&nbsp; 11:35–12:20</div>
+      <div class="session-meta">
+        <div class="session-chair">Chair: <span>D. Orzaez</span></div>
+      </div>
+    </div>
+    <div class="session-topic">Regulatory Framework · Keynote: Ana Judith de la Fuente</div>
+
+    <div class="row keynote">
+      <div class="row-time">11:35–12:20</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-keynote">Keynote</div>
+        <div class="row-speaker">Ana Judith de la Fuente</div>
+        <div class="row-title">Molecular farming activities within the framework of GMO and genome editing regulations</div>
+        <div class="row-affil">MAPA, Spain</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SESSION 12 -->
+  <div class="flash-block">
+    <div class="flash-header">
+      <div class="flash-title">Session 12 &nbsp;·&nbsp; Flash Talks III &nbsp;·&nbsp; 12:20–12:50</div>
+      <div class="session-meta">
+        <div class="session-chair">Chair: <span>Julian Ma</span></div>
+      </div>
+    </div>
+
+    <div class="flash-row">
+      <div class="flash-time">12:20–12:26</div>
+      <div class="flash-content">
+        <div class="flash-speaker">Fuensanta Verdú</div>
+        <div class="flash-title-talk">A genetic framework of genes involved in callus formation and totipotency in plants</div>
+      </div>
+    </div>
+    <div class="flash-row">
+      <div class="flash-time">12:26–12:32</div>
+      <div class="flash-content">
+        <div class="flash-speaker">Jules Delasalle</div>
+        <div class="flash-title-talk">Calnexin and calreticulin ER lectins chaperones in N-glycosylation pathway of proteins: One step to lift the quality control bottleneck for production of glycoproteins</div>
+      </div>
+    </div>
+    <div class="flash-row">
+      <div class="flash-time">12:32–12:38</div>
+      <div class="flash-content">
+        <div class="flash-speaker">Romane Vandevelde</div>
+        <div class="flash-title-talk">Inhibition of transgene silencing in <em>Nicotiana tabacum</em> BY-2 cells via RDR genes inactivation and targeted demethylation</div>
+      </div>
+    </div>
+    <div class="flash-row">
+      <div class="flash-time">12:38–12:44</div>
+      <div class="flash-content">
+        <div class="flash-speaker">Javier Romero</div>
+        <div class="flash-title-talk">Biofortification of <em>S. lycopersicum</em> through the incorporation of the fungal bioluminescence pathway to enhance hispidin synthesis</div>
+      </div>
+    </div>
+    <div class="flash-row">
+      <div class="flash-time">12:44–12:50</div>
+      <div class="flash-content">
+        <div class="flash-speaker">Javier Sánchez</div>
+        <div class="flash-title-talk">Characterization of <em>Nicotiana</em>-derived signal peptides and promoters for molecular farming</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="break-row"><span class="break-time">12:50–14:00</span><span class="break-label">Lunch</span></div>
+
+  <!-- SESSION 13 -->
+  <div class="session-block">
+    <div class="session-header">
+      <div class="session-title">Session 13 &nbsp;·&nbsp; 14:00–15:25</div>
+      <div class="session-meta">
+        <div class="session-chair">Chair: <span>A. Castilho</span></div>
+      </div>
+    </div>
+    <div class="session-topic">Molecular Farming Marketplace · Keynote: Marc-André D'Aoust</div>
+
+    <div class="row">
+      <div class="row-time">14:00–14:20</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Anatoli Giritch</div>
+        <div class="row-title">Scalable expression technologies for manufacturing bioengineered proteins in plants</div>
+        <div class="row-affil">Nomad Bioscience</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row-time">14:20–14:40</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-oral">Oral</div>
+        <div class="row-speaker">Sutinee Soopairin</div>
+        <div class="row-title">Determinants of Public Hesitancy Toward Medicines or Biomolecules Derived from Plant Molecular Farming: preliminary results in a Thai population</div>
+        <div class="row-affil">Chulalongkorn University</div>
+      </div>
+    </div>
+    <div class="row keynote">
+      <div class="row-time">14:40–15:25</div>
+      <div class="row-content">
+        <div class="row-type-badge badge-keynote">Keynote</div>
+        <div class="row-speaker">Marc-André D'Aoust</div>
+        <div class="row-title">Toward commercialization of a plant-based virus-like particle seasonal influenza vaccine, and beyond</div>
+        <div class="row-affil">Aramis Biotechnology, Canada</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="special-block">
+    <div class="special-row">
+      <span class="sp-time">15:25–16:00</span>
+      <span class="sp-label">Closing ceremony &amp; Awards</span>
+    </div>
+    <div class="special-row">
+      <span class="sp-time">18:00</span>
+      <span class="sp-label">City tour (optional)</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  const navLinks = document.querySelectorAll('.day-nav a');
+  const days = ['day0','day1','day2','day3'];
+
+  function setActive() {
+    let current = 'day0';
+    days.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 100) current = id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+
+  window.addEventListener('scroll', setActive, { passive: true });
+
+  navLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(a.getAttribute('href').slice(1));
+      if (target) window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
